@@ -1,4 +1,4 @@
-class Mid extends PIXI.extras.TilingSprite {
+class Mid extends PIXI.TilingSprite {
 	static DELTA_X = 0.32;
 
 	constructor(texture, width, height) {

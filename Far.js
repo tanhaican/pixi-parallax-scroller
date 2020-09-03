@@ -1,4 +1,4 @@
-class Far extends PIXI.extras.TilingSprite {
+class Far extends PIXI.TilingSprite {
 	static DELTA_X = 0.064;
 
 	constructor(texture, width, height) {

@@ -1,9 +1,9 @@
 class Scroller {
 	constructor(stage) {
-		this.far = new Far(PIXI.Texture.fromImage('resources/bg-far.png'), 512, 256);
+		this.far = new Far(PIXI.Texture.from('resources/bg-far.png'), 512, 256);
 		stage.addChild(this.far);
 	
-		this.mid = new Mid(PIXI.Texture.fromImage("resources/bg-mid.png"), 512, 256);
+		this.mid = new Mid(PIXI.Texture.from("resources/bg-mid.png"), 512, 256);
 		stage.addChild(this.mid);
 	
 		this.front = new Walls();

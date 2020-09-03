@@ -4,12 +4,15 @@ class Main {
 	static SCROLL_ACCELERATION = 0.005;
 
 	constructor() {
-		this.stage = new PIXI.Container();
-		this.renderer = PIXI.autoDetectRenderer(
-			512,
-			384,
-			{view:document.getElementById("game-canvas")}
-		);
+		let app = new PIXI.Application({
+			width: 512,
+			height: 384,
+			backgroundColor: '0xffffff',
+			antialias: true, // 抗锯齿，如果效率存在问题可去除
+			view: document.getElementById('game-canvas')
+		});
+		this.renderer = app.renderer;
+		this.stage = app.stage;
 	
 		this.scrollSpeed = Main.MIN_SCROLL_SPEED;
 	
@@ -29,11 +32,11 @@ class Main {
 	};
 	
 	loadSpriteSheet() {
-		var loader = PIXI.loader;
+		var loader = PIXI.Loader.shared;
 		loader.add("wall", "resources/wall.json");
 		loader.add("bg-mid", "resources/bg-mid.png");
 		loader.add("bg-far", "resources/bg-far.png");
-		loader.once("complete", this.spriteSheetLoaded.bind(this));
+		loader.onComplete.add(this.spriteSheetLoaded.bind(this));
 		loader.load();
 	};
 	
